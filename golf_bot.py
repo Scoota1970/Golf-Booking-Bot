@@ -1,3 +1,4 @@
+import os
 import datetime
 import time
 from selenium import webdriver
@@ -25,8 +26,11 @@ driver.get("https://collierpark.miclub.com.au")
 time.sleep(5)
 
 # login
-driver.find_element(By.ID,"username").send_keys("YOUR_LOGIN")
-driver.find_element(By.ID,"password").send_keys("YOUR_PASSWORD")
+username = os.environ["GOLF_USER"]
+password = os.environ["GOLF_PASS"]
+
+driver.find_element(By.ID,"username").send_keys(username)
+driver.find_element(By.ID,"password").send_keys(password)
 driver.find_element(By.ID,"login").click()
 
 time.sleep(5)
