@@ -1,5 +1,4 @@
 name: Golf Booking
-
 on:
   schedule:
     - cron: "59 3 * * *"
@@ -20,4 +19,7 @@ jobs:
       run: pip install selenium webdriver-manager
 
     - name: Run bot
+  env:
+    GOLF_USER: ${{ secrets.GOLF_USER }}
+    GOLF_PASS: ${{ secrets.GOLF_PASS }}
       run: python golf_bot.py
